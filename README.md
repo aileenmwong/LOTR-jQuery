@@ -1,6 +1,6 @@
 # HOMEWORK: LOTR REDUX!!!
 
-![minas-tirith](./assets/Tiras-gif.gif)
+![minas-tirith](./assets/m-t.gif)
 
 This time, you'll be using your new jQuery skills.
 
