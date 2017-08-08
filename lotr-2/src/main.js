@@ -1,3 +1,5 @@
+//worked with Sarah on homework
+
 // ==============================
 //       Dramatis Personae
 // ==============================
@@ -54,27 +56,117 @@ function makeMiddleEarth() {
 
 function makeHobbits() {
   console.log('Make hobbits');
+  // make a ul of hobbits
+  let $shireHobbits = $('<ul>');
+  // create a variable to sort the hobbits
+  const sortedHobbits = hobbits;
+  // sort the hobbits using .sort()
+  sortedHobbits.sort();
+  // loop through the hobbits and create an li for each hobbit
+  $.each(sortedHobbits, function(index, hobbit) {
+    // console.log('what we got from the array ', hobbit);
+    // create a new LI
+    // change that LI for name purposes
+    // append into UL
+    $('<li>').text(hobbit).addClass('hobbit').appendTo($shireHobbits)
+  });
+  // once all appended, append UL into The Shire
+  $('#the-shire').append($shireHobbits);
+
+  // INSTRUCTIONS
   // display an unordered list of hobbits in the shire
   // give each hobbit a class of "hobbit"
   // list the hobbits alphabetically.  Maybe use the .sort() method.
 }
 
 function keepItSecretKeepItSafe() {
+  console.log('Keep It Secret Keep It Safe');
+  // make a div for 'the-ring'
+  let $ring = $('<div>').attr('id', 'the-ring').html('The Ring');
+  // declare all the hobbits in the array as a variable
+  let hobbits = $('.hobbit');
+  // add an id of 'the-ring' with the inner HTML of "The Ring"
+  $ring.appendTo(hobbits[0]);
+
+
+  // INSTRUCTIONS
   // create an empty div with an id of 'the-ring' and innerHTML of "The ring"
   // add the ring as a child of Frodo
 }
 
 function makeBuddies() {
+  console.log('Make Buddies');
+  //create an aside tag and append it to mordor
+  let $firepit = $('<aside>').appendTo('#mordor');
+  //create an unordered list of buddies
+  let $hobbitBuddies = $('<ul>');
+  // loop through the buddies and create an li for each buddy
+  $.each(buddies, function(index, buddy) {
+    // console.log('what we got from the array ', buddy);
+    // create a new LI
+    // change that LI for name purposes
+    // append into UL
+    $('<li>').text(buddy).addClass('buddy').appendTo($hobbitBuddies);
+  });
+  // once all appended, append UL into The Shire
+  $('#mordor').append($hobbitBuddies);
+
+
+  // INSTRUCTIONS
   // create an aside tag and append it below mordor
   // display an unordered list of buddies in the aside
   // give each of the buddies a class of "buddy"
 }
 
 function leaveTheShire() {
+  console.log('leaving the shire');
   // grab the hobbits and move them to Rivendell
+  $('.hobbit').appendTo('#rivendell');
 }
 
+// INSTRUCTIONS
+// grab the hobbits and move them to Rivendell
+
 function forgeTheFellowShip() {
+  console.log('Forge The Fellowship')
+  // create a new div called 'the-fellowship'
+  let $fellowship = $('<div>').attr('id', 'fellowship');
+  //add an h1 with the text 'The Fellowship' to this new div
+  let $fellowshipTitle = $('<h1>').html('The Fellowship');
+  $fellowshipTitle.appendTo($fellowship);
+  //append the fellowship to rivendell
+  $fellowship.appendTo('#rivendell');
+  // //append the hobbits to the fellowship
+  // $('.hobbit').appendTo('#fellowship');
+  // // moves the buddies to the fellowship
+  // $('.buddy').appendTo('#fellowship');
+
+  //declare buddies as a variable
+  const $goodGuys = $('.buddy');
+  //console.log($goodGuys);
+
+  //loop through each buddy
+  $goodGuys.each(function(i, value) {
+    //console.log(value);
+    // append to the fellowship
+    $(value).appendTo($('#fellowship'));
+    // console log that he has joined
+    console.log(($(value).text) + 'has joined the fellowship!');
+   });
+    //declare hobbits as a variable
+   const $hobbitGuys = $('.hobbit');
+    //console.log($goodGuys);
+    //loop through each hobbit
+    $hobbitGuys.each(function(i, value) {
+    //console.log(value);
+    //append to the fellowship
+    $(value).appendTo($('#fellowship'));
+    // console log that he has joined
+    console.log(($(value).text) + 'has joined the fellowship!');
+   });
+
+
+  // INSTRUCTIONS
   // move the hobbits and the buddies to Rivendell
   // create a new div called 'the-fellowship'
   // add an h1 with the text 'The Fellowship' to this new div
@@ -83,6 +175,17 @@ function forgeTheFellowShip() {
 }
 
 function hornOfGondor() {
+  console.log('Horn of Gondor');
+  // pop up an alert that the horn of gondor has been blown
+  alert('The Horn of Gondor has been blown!');
+  // declare all the buddies in an array as a variable
+  let $buddies = $('.buddy')[3];
+  // put a linethrough on boromir's name
+  $(buddies).css('text-decoration', 'line-through');
+
+
+
+  // INSTRUCTIONS
   // pop up an alert that the horn of gondor has been blown
   // Boromir's been killed by the Uruk-hai!
   // put a linethrough on boromir's name
@@ -107,7 +210,7 @@ function thereAndBackAgain() {
 }
 
 function golemGotCash() {
-  // for those that made it through, 
+  // for those that made it through,
   // add a div to the body
   // give it an id of 'lord-of-the-bling'
   // YOU WIN!
