@@ -189,19 +189,47 @@ function itsDangerousToGoAlone(){
 }
 
 function weWantsIt() {
+  console.log('We Wants It');
+  // Create a div with an id of 'gollum' and add it to Mordor
+  const $gollum = $('<div>').attr('id', 'gollum');
+  $gollum.text('Gollum');
+  //and add it to Mordor
+  const $mordor = $('#mordor').append($gollum);
+  // Remove the ring from Frodo and give it to Gollum
+  const $ring = $('#the-ring');
+  $gollum.append($ring);
+  // Create a condition (Maybe an IF statement) that changes the font-color of the ring div to Red
+  if ($('#gollum').children()[0].id == 'the-ring') {
+    $ring.css('color', 'red');
+  }
+
+  //INSTRUCTIONS
   // Create a div with an id of 'gollum' and add it to Mordor
   // Remove the ring from Frodo and give it to Gollum
-  // Create a condition (Maybe an IF statement) that changes the font-color of the ring div to Red if
-  // it is a child of the div with the id 'gollum'
+  // Create a condition (Maybe an IF statement) that changes the font-color of the ring div to Red if it is a child of the div with the id 'gollum'
   // Move Gollum into Mount Doom
 }
 
 function thereAndBackAgain() {
+   console.log('There and Back Again');
+  // remove Gollum and the Ring from the DOM
+  $('#gollum').remove();
+  // Move all the hobbits back to the shire
+  const $hobbits = $('.hobbit');
+  const $shire = $('#the-shire').append($hobbits);
+
+
+  //INSTRUCTIONS
   // remove Gollum and the Ring from the DOM
   // Move all the hobbits back to the shire
 }
 
 function golemGotCash() {
+  console.log('Golem Got Cash');
+  const $bling = $('<div>').attr('id', 'lord-of-the-bling').html('lord-of-the-bling');
+  const $hobbits = $('.hobbit').append($bling);
+  const $buddies = $('.buddy').append($bling);
+
   // for those that made it through,
   // add a div to the body
   // give it an id of 'lord-of-the-bling'
