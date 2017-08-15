@@ -130,41 +130,18 @@ function leaveTheShire() {
 function forgeTheFellowShip() {
   console.log('Forge The Fellowship')
   // create a new div called 'the-fellowship'
-  let $fellowship = $('<div>').attr('id', 'fellowship');
+  let $fellowshipDiv = $('<div>').attr('id', 'the-fellowship');
   //add an h1 with the text 'The Fellowship' to this new div
   let $fellowshipTitle = $('<h1>').html('The Fellowship');
-  $fellowshipTitle.appendTo($fellowship);
+  $fellowshipTitle.appendTo($fellowshipDiv);
   //append the fellowship to rivendell
-  $fellowship.appendTo('#rivendell');
-  // //append the hobbits to the fellowship
-  // $('.hobbit').appendTo('#fellowship');
-  // // moves the buddies to the fellowship
-  // $('.buddy').appendTo('#fellowship');
-
-  //declare buddies as a variable
-  const $goodGuys = $('.buddy');
-  //console.log($goodGuys);
-
-  //loop through each buddy
-  $goodGuys.each(function(i, value) {
-    //console.log(value);
-    // append to the fellowship
-    $(value).appendTo($('#fellowship'));
-    // console log that he has joined
-    console.log(($(value).text) + 'has joined the fellowship!');
-   });
-    //declare hobbits as a variable
-   const $hobbitGuys = $('.hobbit');
-    //console.log($goodGuys);
-    //loop through each hobbit
-    $hobbitGuys.each(function(i, value) {
-    //console.log(value);
-    //append to the fellowship
-    $(value).appendTo($('#fellowship'));
-    // console log that he has joined
-    console.log(($(value).text) + 'has joined the fellowship!');
-   });
-
+  $fellowshipDiv.appendTo('#rivendell');
+  // append the hobbits and buddies to the fellowship
+  const fellowship = $('.hobbit, .buddy');
+  for (let i = 0; i < fellowship.length; i++) {
+    $fellowshipDiv.append(fellowship[i]);
+    console.log(`${fellowship[i].textContent} has joined your party`)
+  }
 
   // INSTRUCTIONS
   // move the hobbits and the buddies to Rivendell
@@ -179,10 +156,8 @@ function hornOfGondor() {
   // pop up an alert that the horn of gondor has been blown
   alert('The Horn of Gondor has been blown!');
   // declare all the buddies in an array as a variable
-  let $buddies = $('.buddy')[3];
   // put a linethrough on boromir's name
-  $(buddies).css('text-decoration', 'line-through');
-
+  let $buddies = $('#rivendell div .buddy:last').css('text-decoration', 'line-through');
 
 
   // INSTRUCTIONS
@@ -192,6 +167,13 @@ function hornOfGondor() {
 }
 
 function itsDangerousToGoAlone(){
+  let $frodo = ($('.hobbit').get(0));
+  let $mordor = $('#mordor aside ul')
+  console.log($frodo)
+  console.log($mordor)
+  $frodo.appendTo($mordor);
+
+  //INSTRUCTIONS
   // take Frodo and Sam out of the fellowship and move them to Mordor
   // add a div with an id of 'mount-doom' to Mordor
 }
