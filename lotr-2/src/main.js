@@ -167,11 +167,21 @@ function hornOfGondor() {
 }
 
 function itsDangerousToGoAlone(){
-  let $frodo = ($('.hobbit').get(0));
-  let $mordor = $('#mordor aside ul')
-  console.log($frodo)
-  console.log($mordor)
-  $frodo.appendTo($mordor);
+  console.log('Its Dangerous to go Alone')
+  const $frodo = $('.hobbit')[0];
+  const $sam = $('.hobbit')[3];
+  const $mordor = $('#mordor ul');
+  console.log($frodo);
+  console.log($mordor);
+  //append Frodo to Mordor
+  $mordor.append($frodo);
+  //append Sam to Mordor
+  $mordor.append($sam);
+  // add a div with an id of 'mount-doom' to Mordor
+  const $mountdoom = $('<div>').attr('id', 'mount-doom');
+  //append the div to Mordor
+  $mordor.append($mountdoom);
+
 
   //INSTRUCTIONS
   // take Frodo and Sam out of the fellowship and move them to Mordor
